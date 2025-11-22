@@ -27,6 +27,22 @@ LangChain + Ollama ───► LLM local con formato JSON (Pydantic)
 3. **Modelo local**: `ChatOllama` ejecuta `gpt-oss:latest` (puedes cambiarlo) y responde en JSON validado con Pydantic.
 4. **Merge inteligente**: se consolidan las listas y se eliminan duplicados manteniendo el orden original.
 
+### Flujo narrado (versión simple)
+
+1. **Definimos el encargo**: redactamos la pregunta y pegamos la URL oficial que se debe analizar.
+2. **Descargamos y limpiamos la página**: un “navegador robot” (Playwright) abre la resolución y eliminamos menús/anuncios con BeautifulSoup.
+3. **La IA conversa y pide más datos si los necesita**: Ollama trabaja en local y puede volver a consultar la URL hasta cinco veces.
+4. **Ordenamos la información**: siempre entregamos `companies`, `persons` y `events` para facilitar la revisión.
+5. **Guardamos la evidencia**: todo queda en `data.json` junto con los registros de la conversación para auditar cada corrida.
+
+```mermaid
+graph TD
+  A[Definir encargo\nPregunta + URL] --> B[Descargar y limpiar\nPlaywright + BeautifulSoup]
+  B --> C[IA local conversa\nOllama + tool fetch_url_content]
+  C --> D[Ordenar resultados\ncompanies · persons · events]
+  D --> E[Guardar evidencia\ndata.json + logs]
+```
+
 ## Requisitos
 
 - Python 3.10+
