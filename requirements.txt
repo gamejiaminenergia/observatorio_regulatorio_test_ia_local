@@ -1,0 +1,12 @@
+Flask
+ngrok
+requests
+ollama
+pydantic
+beautifulsoup4
+playwright
+langchain
+langchain-core
+langchain-community
+langchain-ollama
+unstructured

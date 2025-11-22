@@ -1,0 +1,32 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment & tooling files
+*.env
+.env.*
+.python-version
+.vscode/
+.idea/
+
+# Playwright / test outputs
+playwright-report/
+test-results/
+
+# OS-specific noise
+.DS_Store
+Thumbs.db
+
+# Generated data files
+/data.json
+*.log
+
+# Docker volumes (created locally when testing)
+ollama_data/
