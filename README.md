@@ -36,7 +36,7 @@ LangChain + Ollama ───► LLM local con formato JSON (Pydantic)
 5. **Guardamos el respaldo**: entregamos un archivo `data.json` con toda la información y un registro de lo que la IA consultó por si se necesita auditoría.
 
 ```mermaid
-graph LR
+graph TD
   A[1. Formulamos la tarea] --> B[2. Copiamos el texto limpio]
   B --> C[3. IA revisa y pregunta]
   C --> D[4. Clasificamos lo encontrado]
